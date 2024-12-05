@@ -1,0 +1,25 @@
+class obstical{
+  
+  
+  
+  obstical(){
+    
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+}
