@@ -5,18 +5,19 @@ class Player{
   PVector acceleration;
   PVector jumpAcceleration;
   PVector gravityAcceleration;
-  float jumpHeight = -10;
-  float gravity = 1;
+  float jumpHeight;
+  float gravity = 0.1;
   float jump;
   float ground = 280;
   boolean canJump;
   
   Player(float x, float y){
+    jumpHeight = -2.5;
     position = new PVector(x,y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0, 0);
-    jumpAcceleration = new PVector(0,0);
-    gravityAcceleration = new PVector(0, 0);
+    jumpAcceleration = new PVector(0,jumpHeight);
+    gravityAcceleration = new PVector(0, gravity);
     
   }
   
@@ -30,43 +31,43 @@ class Player{
     
   }
   void move(){
-    jumpAcceleration = new PVector(0,jump);
-    gravityAcceleration = new PVector(0, gravity);
     
-    if(position.y >= 250 ){
-      velocity.y = 0;  
-      acceleration.y = 0;
+    
+    if(position.y >= 249){
+      if(velocity.y == 0 && acceleration.y == 0 && position.y == 250){
+        jump = jumpHeight;
       
-    }else{
-      acceleration.add(gravityAcceleration);
-    }
-    
-    
-    
-    if(velocity.y == 0 && acceleration.y == 0 && canJump){
-      jump = jumpHeight;
-    }else{
-      jump = 0;
+      }else{
+        jump = 0;
+      }
     }
     
     
     
     
     
-    acceleration.add(jumpAcceleration);
-    velocity.add(acceleration);
     
-    position.add(velocity);
+    velocity.add(jumpAcceleration);
+    println("hi");
+    
     
     
     
   }
     
   void printStuff(){
-    println(canJump);
-    println(position.y);
+    //println(position.y);
   }
-
+  
+  
+  void gravity(){
+    
+    
+    acceleration.add(gravityAcceleration);
+    velocity.add(acceleration);
+    position.add(velocity);
+    
+  }
 
 
 }

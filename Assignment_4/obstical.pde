@@ -4,8 +4,8 @@ class Obstical{
   PVector acceleration;
   float speed = -0.1;
   
-  Obstical(float x, float y){
-    position = new PVector(x, y);
+  Obstical(float x){
+    position = new PVector(x, 250);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
   }
