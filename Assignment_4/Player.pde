@@ -6,13 +6,13 @@ class Player{
   PVector jumpAcceleration;
   PVector gravityAcceleration;
   float jumpHeight;
-  float gravity = 0.1;
+  float gravity;
   float jump;
   float ground = 280;
   boolean canJump;
   
   Player(float x, float y){
-    jumpHeight = -2.5;
+    jumpHeight = (-2.5);
     position = new PVector(x,y);
     velocity = new PVector(0,0);
     acceleration = new PVector(0, 0);
@@ -43,15 +43,8 @@ class Player{
     }
     
     
-    
-    
-    
-    
     velocity.add(jumpAcceleration);
-    println("hi");
-    
-    
-    
+  
     
   }
     
@@ -61,8 +54,14 @@ class Player{
   
   
   void gravity(){
+    if(position.y >= 249){
+      
+      gravity = 0;
+    }else{
+   gravity = .01;
+    }
     
-    
+    gravityAcceleration.y = gravity;
     acceleration.add(gravityAcceleration);
     velocity.add(acceleration);
     position.add(velocity);
