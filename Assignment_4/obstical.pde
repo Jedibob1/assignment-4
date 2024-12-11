@@ -11,6 +11,7 @@ class Obstical{
   }
   
   void display(){
+    fill(255,0,0);
     rect(position.x,position.y, 50,50);
     
     

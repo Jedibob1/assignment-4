@@ -5,7 +5,7 @@ Obstical[] obstical;
 void setup(){
   size(400,400);
   rectMode(CENTER);
-  player = new Player(80,250);
+  player = new Player(80,100);
   obstical = new  Obstical[12];
   for(int i = 0; i < obstical.length ; i++){
      obstical[i] = new Obstical(int(random(400,1800)));
@@ -18,7 +18,7 @@ void setup(){
      println(i);
   }
   
-}
+}     
 void draw(){
  background(255);
  
@@ -27,26 +27,21 @@ void draw(){
  rect(200,340,400,120);
  player.display();
  player.printStuff();
- //player.gravity();
  
- if(player.position.y > 250){
-     player.position.y = 250;
-     player.velocity.y = 0; 
- }
  
+ player.move();
   for(int i = 0; i < obstical.length ; i++){
    
    obstical[i].display();
    obstical[i].move();
+   
   
  }
  
  
  if(keyPressed){
-   player.move();
+   player.jump();
    
- }else{
-   player.gravity();
  }
  
  
@@ -54,11 +49,7 @@ void draw(){
 }
 
 void keyPressed(){
- // if(keyPressed){
-  //  player.move();
-    
-  //}
-  
+ 
   
   
 }
